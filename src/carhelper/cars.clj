@@ -47,7 +47,7 @@
 (def cars (sc-pwr cars))
 
 (defn get-all []
-  (json/write-str cars))
+  cars)
 
 (defn get-younger []
   (filter #(= (:score_hp %) 2) cars))

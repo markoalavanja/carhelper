@@ -14,7 +14,7 @@
 
 (defn -main
   [& args]
-  (let [port (Integer/parseInt (or (System/getenv "PORT") "9002"))]
+  (let [port (Integer/parseInt (or (System/getenv "PORT") "8000"))]
     (server/run-server (->
-                       (wrap-defaults #'app (site-defaults))
+                       (wrap-defaults #'app (site-defaults :security false))
     {:port port}))))

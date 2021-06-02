@@ -1,11 +1,10 @@
 (ns carhelper.api
   (:require [carhelper.service :as service]
-            [clojure.data.json :as json]
             [ring.util.response :as response-utils]))
 
 (defn getall []
   (try
-    (response-utils/response (json/read-str (service/all-cars)))
+    (response-utils/response (service/all-cars))
     (catch Exception e (response-utils/status (response-utils/response "cars.general.error") 400))))
 
 (defn get-younger []
